@@ -1,0 +1,5 @@
+"use client";
+import { motion } from "framer-motion";
+import { GraduationCap, MapPin, Sparkles } from "lucide-react";
+const badges = [[GraduationCap, "MCA — 8.66 CGPA"], [MapPin, "Pune, Maharashtra"], [Sparkles, "Open to Software Engineering Roles"]] as const;
+export default function About() { return <section id="about" className="section"><motion.div initial={{opacity:0,y:18}} whileInView={{opacity:1,y:0}} viewport={{once:true}}><p className="eyebrow">About me</p><div className="mt-5 grid gap-10 md:grid-cols-[.85fr_1.15fr]"><h2 className="section-title">A practical mind for meaningful problems.</h2><div><p className="text-lg leading-8 text-ink/70 dark:text-white/70">I’m a recent MCA graduate with a strong interest in backend systems and web technologies. I enjoy turning complex requirements into dependable, human-centered software—from well-structured APIs to responsive interfaces.</p><div className="mt-7 flex flex-wrap gap-3">{badges.map(([Icon, text]) => <span key={text} className="badge"><Icon size={15}/>{text}</span>)}</div></div></div></motion.div></section>; }

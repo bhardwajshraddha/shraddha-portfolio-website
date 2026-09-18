@@ -1,0 +1,17 @@
+SHRADDHA BHARDWAJ
+Software Engineer | Full-Stack Developer
+
+EDUCATION
+Master of Computer Applications, Dr. D. Y. Patil School of MCA, Pune (2024–2026)
+CGPA: 8.66 | Savitribai Phule Pune University
+
+B.Voc Software Development, Dhote Bandhu Science College, Gondia (2021–2024)
+CGPA: 9.31 | Rashtrasant Tukadoji Maharaj Nagpur University
+
+PROJECTS
+Borrvio — peer-to-peer rental marketplace
+SmartNet — network traffic analysis and threat detection platform
+
+SKILLS
+Java, JavaScript, TypeScript, React, Next.js, Node.js, Express, Spring Boot,
+MongoDB, MySQL, REST APIs, TCP/IP, PCAP, Git, Maven
