@@ -81,6 +81,7 @@ export default function Hero() {
             </a>
             <a
               href="/Shraddha_Bhardwaj_Resume.pdf"
+              
               download
               className="button-secondary"
             >
