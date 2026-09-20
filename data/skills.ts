@@ -95,15 +95,12 @@ export const skillCategories: SkillCategory[] = [
     name: "Soft Skills",
     skills: [
       "Verbal & Written Communication (English)",
-      "Active Listening & Customer Handling",
       "Problem Solving & Structured Troubleshooting",
-      "Patience & Composure Under Pressure",
       "Email & Chat Support",
       "Computer & Internet Troubleshooting",
       "MS Office & Data Handling",
       "Time Management & Multitasking",
       "Team Collaboration",
-      "Adaptable to Night Shifts / Rotational Shifts",
     ],
   },
 ];

@@ -80,7 +80,7 @@ export default function Hero() {
               View Projects <ArrowDown size={16} />
             </a>
             <a
-              href="/shraddha-bhardwaj-resume.txt"
+              href="/Shraddha_Bhardwaj_Resume.pdf"
               download
               className="button-secondary"
             >
@@ -88,7 +88,7 @@ export default function Hero() {
             </a>
             <a
               aria-label="GitHub"
-              href="https://github.com/"
+              href="https://github.com/bhardwajshraddha"
               target="_blank"
               className="icon-button h-11 w-11"
             >
@@ -96,7 +96,7 @@ export default function Hero() {
             </a>
             <a
               aria-label="LinkedIn"
-              href="https://linkedin.com/"
+              href="https://www.linkedin.com/in/shraddhabhardwaj/"
               target="_blank"
               className="icon-button h-11 w-11"
             >
