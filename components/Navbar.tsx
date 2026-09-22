@@ -33,11 +33,11 @@ export default function Navbar() {
         className="
           mx-auto flex h-[4.5rem] max-w-6xl items-center justify-between
           rounded-2xl border border-white/[0.12]
-          bg-ink/90 px-4
+          bg-ink/85 px-4
           shadow-[8px_8px_24px_rgba(0,0,0,.28),-4px_-4px_18px_rgba(255,255,255,.035),inset_0_1px_0_rgba(255,255,255,.06)]
           backdrop-blur-xl
           dark:border-white/[0.08]
-          dark:bg-[#15251d]/90
+          dark:bg-[#15251d]/85
           dark:shadow-[8px_10px_28px_rgba(0,0,0,.38),-4px_-4px_18px_rgba(255,255,255,.025),inset_0_1px_0_rgba(255,255,255,.05)]
           sm:px-5
         "
@@ -65,26 +65,28 @@ export default function Navbar() {
           {links.map((x) => (
             <a
               key={x}
-              className="nav-link-polished text-[16px] font-medium tracking-wide"
+              className="nav-link-polished text-[17px] font-medium tracking-wide"
               href={`#${x.toLowerCase()}`}
             >
               {x}
             </a>
           ))}
 
-          {/* Ask AI + Theme Toggle */}
-          <div className="ml-1 flex items-center gap-3">
+          {/* Right-side action group */}
+          <div className="ml-2 flex items-center gap-3">
+            {/* Glass Ask AI Button */}
             <motion.a
               href="#ask-ai"
               className="
-                relative inline-flex items-center gap-2
-                rounded-full px-4 py-2.5
-                text-[14px] font-bold text-ink
-                shadow-[4px_4px_10px_rgba(0,0,0,.25),inset_1px_1px_2px_rgba(255,255,255,.45)]
+                relative inline-flex items-center gap-2.5
+                overflow-hidden rounded-full
+                border border-lime/40
+                bg-white/[0.06]
+                px-5 py-2.5
+                text-[15px] font-semibold text-white
+                backdrop-blur-md
+                shadow-[0_0_18px_rgba(201,242,105,.12),inset_0_1px_0_rgba(255,255,255,.12)]
               "
-              style={{
-                background: "linear-gradient(135deg, #c9f269, #9ace53)",
-              }}
               whileHover={{
                 scale: 1.04,
                 y: -1,
@@ -96,27 +98,32 @@ export default function Navbar() {
                 damping: 15,
               }}
             >
+              {/* Lime glass glow */}
               <motion.span
                 className="absolute inset-0 -z-10 rounded-full"
                 style={{
                   background:
-                    "radial-gradient(circle, #c9f269 0%, transparent 70%)",
+                    "radial-gradient(circle at 50% 50%, rgba(201,242,105,.22), transparent 70%)",
                 }}
                 animate={{
-                  opacity: [0.3, 0.65, 0.3],
-                  scale: [1, 1.12, 1],
+                  opacity: [0.45, 0.8, 0.45],
+                  scale: [1, 1.08, 1],
                 }}
                 transition={{
-                  duration: 2.5,
+                  duration: 2.8,
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
               />
+
+              {/* AI Icon */}
               <motion.span
                 className="
-                  grid h-6 w-6 place-items-center overflow-hidden
-                  rounded-full bg-white/25
-                  shadow-inner
+                  grid h-7 w-7 shrink-0 place-items-center
+                  overflow-hidden rounded-full
+                  border border-lime/25
+                  bg-lime/15
+                  shadow-[inset_0_1px_3px_rgba(255,255,255,.12)]
                 "
                 animate={{ y: [0, -2, 0] }}
                 transition={{
@@ -128,13 +135,14 @@ export default function Navbar() {
                 <img
                   src="/ask-ai-icon.png"
                   alt="Ask AI"
-                  className="h-4 w-4 object-contain"
+                  className="h-5 w-5 object-contain"
                 />
               </motion.span>
-              Ask AI
+
+              <span>Ask AI</span>
             </motion.a>
 
-            {/* Theme Toggle */}
+            {/* Theme Button */}
             <button
               aria-label="Toggle color theme"
               onClick={toggle}
@@ -199,7 +207,7 @@ export default function Navbar() {
             <a
               key={x}
               onClick={() => setOpen(false)}
-              className="nav-link-polished block py-3 text-[16px] font-medium tracking-wide"
+              className="nav-link-polished block py-3 text-[17px] font-medium tracking-wide"
               href={`#${x.toLowerCase()}`}
             >
               {x}
@@ -210,20 +218,28 @@ export default function Navbar() {
             onClick={() => setOpen(false)}
             href="#ask-ai"
             className="
-              mt-2 flex items-center gap-2
-              rounded-full px-4 py-2.5
-              text-[14px] font-bold text-ink
-              shadow-[4px_4px_10px_rgba(0,0,0,.25),inset_1px_1px_2px_rgba(255,255,255,.4)]
+              mt-2 flex items-center gap-2.5
+              rounded-full
+              border border-lime/40
+              bg-white/[0.06]
+              px-5 py-2.5
+              text-[15px] font-semibold text-white
+              shadow-[0_0_18px_rgba(201,242,105,.12),inset_0_1px_0_rgba(255,255,255,.12)]
+              backdrop-blur-md
             "
-            style={{
-              background: "linear-gradient(135deg, #c9f269, #9ace53)",
-            }}
           >
-            <span className="grid h-6 w-6 place-items-center overflow-hidden rounded-full bg-white/25">
+            <span
+              className="
+                grid h-7 w-7 shrink-0 place-items-center
+                overflow-hidden rounded-full
+                border border-lime/25
+                bg-lime/15
+              "
+            >
               <img
                 src="/ask-ai-icon.png"
                 alt="Ask AI"
-                className="h-4 w-4 object-contain"
+                className="h-5 w-5 object-contain"
               />
             </span>
             Ask AI
