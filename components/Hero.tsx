@@ -29,7 +29,7 @@ export default function Hero() {
           <motion.p
             animate={{ opacity: [0.65, 1, 0.65] }}
             transition={{ duration: 3.4, repeat: Infinity, ease: "easeInOut" }}
-            className="eyebrow"
+            className="eyebrow !text-lg sm:!text-xl font-semibold tracking-wide"
           >
             Hello, I’m Shraddha
           </motion.p>
@@ -81,7 +81,6 @@ export default function Hero() {
             </a>
             <a
               href="/Shraddha_Bhardwaj_Resume.pdf"
-              
               download
               className="button-secondary"
             >
