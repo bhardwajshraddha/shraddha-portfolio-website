@@ -100,7 +100,6 @@ export const skillCategories: SkillCategory[] = [
       "Computer & Internet Troubleshooting",
       "MS Office & Data Handling",
       "Time Management & Multitasking",
-      "Team Collaboration",
     ],
   },
 ];
