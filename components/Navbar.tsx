@@ -1,5 +1,5 @@
 "use client";
-// Added `motion` for the Ask AI button's bounce + glow animations
+
 import { motion } from "framer-motion";
 import { Code2, Menu, Moon, Sun, X } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -15,6 +15,7 @@ export default function Navbar() {
     const isDark = saved
       ? saved === "dark"
       : window.matchMedia("(prefers-color-scheme: dark)").matches;
+
     setDark(isDark);
     document.documentElement.classList.toggle("dark", isDark);
   }, []);
@@ -28,94 +29,177 @@ export default function Navbar() {
 
   return (
     <header className="fixed inset-x-0 top-3 z-40 px-3 sm:top-4 sm:px-5">
-      <nav className="mx-auto flex h-[4.35rem] max-w-6xl items-center justify-between rounded-2xl border border-white/10 bg-ink/80 px-4 shadow-[0_12px_35px_rgba(10,20,15,.18)] backdrop-blur-xl dark:bg-[#15251d]/80 sm:px-5">
+      <nav
+        className="
+          mx-auto flex h-[4.5rem] max-w-6xl items-center justify-between
+          rounded-2xl border border-white/[0.12]
+          bg-ink/90 px-4
+          shadow-[8px_8px_24px_rgba(0,0,0,.28),-4px_-4px_18px_rgba(255,255,255,.035),inset_0_1px_0_rgba(255,255,255,.06)]
+          backdrop-blur-xl
+          dark:border-white/[0.08]
+          dark:bg-[#15251d]/90
+          dark:shadow-[8px_10px_28px_rgba(0,0,0,.38),-4px_-4px_18px_rgba(255,255,255,.025),inset_0_1px_0_rgba(255,255,255,.05)]
+          sm:px-5
+        "
+      >
+        {/* Logo */}
         <a href="#top" className="group flex items-center gap-2.5">
-          <span className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-lime to-[#9ace53] text-ink shadow-[0_0_20px_rgba(201,242,105,.3)]">
-            <Code2 size={18} />
+          <span
+            className="
+              grid h-10 w-10 place-items-center rounded-xl
+              bg-gradient-to-br from-lime to-[#9ace53]
+              text-ink
+              shadow-[4px_4px_10px_rgba(0,0,0,.25),inset_1px_1px_2px_rgba(255,255,255,.35)]
+            "
+          >
+            <Code2 size={19} />
           </span>
-          <span className="bg-gradient-to-r from-white via-white to-lime bg-clip-text text-base font-semibold tracking-tight text-transparent">
+
+          <span className="bg-gradient-to-r from-white via-white to-lime bg-clip-text text-[17px] font-semibold tracking-tight text-transparent">
             Shraddha<span className="text-lime">.</span>
           </span>
         </a>
 
-        <div className="hidden items-center gap-7 lg:flex">
+        {/* Desktop Navigation */}
+        <div className="hidden items-center gap-8 lg:flex">
           {links.map((x) => (
             <a
               key={x}
-              className="nav-link-polished text-[15px] font-medium tracking-wide"
+              className="nav-link-polished text-[16px] font-medium tracking-wide"
               href={`#${x.toLowerCase()}`}
             >
               {x}
             </a>
           ))}
 
-          {/* ASK AI — standout pill button using the site's existing lime theme */}
-          <motion.a
-            href="#ask-ai"
-            className="relative inline-flex items-center gap-2 rounded-full px-4 py-2 text-[13px] font-bold text-ink"
-            style={{
-              background: "linear-gradient(135deg, #c9f269, #9ace53)",
-            }}
-            whileHover={{ scale: 1.06 }}
-            transition={{ type: "spring", stiffness: 300, damping: 15 }}
-          >
-            <motion.span
-              className="absolute inset-0 -z-10 rounded-full"
+          {/* Ask AI + Theme Toggle */}
+          <div className="ml-1 flex items-center gap-3">
+            <motion.a
+              href="#ask-ai"
+              className="
+                relative inline-flex items-center gap-2
+                rounded-full px-4 py-2.5
+                text-[14px] font-bold text-ink
+                shadow-[4px_4px_10px_rgba(0,0,0,.25),inset_1px_1px_2px_rgba(255,255,255,.45)]
+              "
               style={{
-                background:
-                  "radial-gradient(circle, #c9f269 0%, transparent 70%)",
+                background: "linear-gradient(135deg, #c9f269, #9ace53)",
               }}
-              animate={{ opacity: [0.4, 0.85, 0.4], scale: [1, 1.15, 1] }}
-              transition={{
-                duration: 2.2,
-                repeat: Infinity,
-                ease: "easeInOut",
+              whileHover={{
+                scale: 1.04,
+                y: -1,
               }}
-            />
-            <motion.span
-              className="grid h-6 w-6 place-items-center overflow-hidden rounded-full bg-white/25"
-              animate={{ y: [0, -3, 0] }}
+              whileTap={{ scale: 0.97 }}
               transition={{
-                duration: 1.8,
-                repeat: Infinity,
-                ease: "easeInOut",
+                type: "spring",
+                stiffness: 300,
+                damping: 15,
               }}
             >
-              <img
-                src="/ask-ai-icon.png"
-                alt="Ask AI"
-                className="h-4 w-4 object-contain"
+              <motion.span
+                className="absolute inset-0 -z-10 rounded-full"
+                style={{
+                  background:
+                    "radial-gradient(circle, #c9f269 0%, transparent 70%)",
+                }}
+                animate={{
+                  opacity: [0.3, 0.65, 0.3],
+                  scale: [1, 1.12, 1],
+                }}
+                transition={{
+                  duration: 2.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
               />
-            </motion.span>
-            Ask AI
-          </motion.a>
+              <motion.span
+                className="
+                  grid h-6 w-6 place-items-center overflow-hidden
+                  rounded-full bg-white/25
+                  shadow-inner
+                "
+                animate={{ y: [0, -2, 0] }}
+                transition={{
+                  duration: 1.8,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              >
+                <img
+                  src="/ask-ai-icon.png"
+                  alt="Ask AI"
+                  className="h-4 w-4 object-contain"
+                />
+              </motion.span>
+              Ask AI
+            </motion.a>
+
+            {/* Theme Toggle */}
+            <button
+              aria-label="Toggle color theme"
+              onClick={toggle}
+              className="
+                nav-icon-button
+                h-11 w-11
+                rounded-xl
+                border border-white/10
+                shadow-[4px_4px_10px_rgba(0,0,0,.25),-2px_-2px_8px_rgba(255,255,255,.035),inset_0_1px_0_rgba(255,255,255,.05)]
+              "
+            >
+              {dark ? <Sun size={18} /> : <Moon size={18} />}
+            </button>
+          </div>
         </div>
 
+        {/* Mobile Controls */}
         <div className="flex items-center gap-2">
           <button
             aria-label="Toggle color theme"
             onClick={toggle}
-            className="nav-icon-button"
+            className="
+              nav-icon-button
+              h-10 w-10
+              rounded-xl
+              shadow-[3px_3px_8px_rgba(0,0,0,.22),inset_0_1px_0_rgba(255,255,255,.04)]
+              lg:hidden
+            "
           >
             {dark ? <Sun size={17} /> : <Moon size={17} />}
           </button>
+
           <button
             aria-label="Open navigation"
             onClick={() => setOpen(!open)}
-            className="nav-icon-button lg:hidden"
+            className="
+              nav-icon-button
+              h-10 w-10
+              rounded-xl
+              shadow-[3px_3px_8px_rgba(0,0,0,.22),inset_0_1px_0_rgba(255,255,255,.04)]
+              lg:hidden
+            "
           >
             {open ? <X size={19} /> : <Menu size={19} />}
           </button>
         </div>
       </nav>
 
+      {/* Mobile Menu */}
       {open && (
-        <div className="mx-auto mt-2 max-w-6xl rounded-2xl border border-white/10 bg-ink/90 px-5 py-3 shadow-xl backdrop-blur-xl dark:bg-[#15251d]/90 lg:hidden">
+        <div
+          className="
+            mx-auto mt-2 max-w-6xl
+            rounded-2xl border border-white/10
+            bg-ink/95 px-5 py-3
+            shadow-[8px_10px_24px_rgba(0,0,0,.28),inset_0_1px_0_rgba(255,255,255,.05)]
+            backdrop-blur-xl
+            dark:bg-[#15251d]/95
+          "
+        >
           {links.map((x) => (
             <a
               key={x}
               onClick={() => setOpen(false)}
-              className="nav-link-polished block py-3 text-[15px] font-medium tracking-wide"
+              className="nav-link-polished block py-3 text-[16px] font-medium tracking-wide"
               href={`#${x.toLowerCase()}`}
             >
               {x}
@@ -125,7 +209,12 @@ export default function Navbar() {
           <a
             onClick={() => setOpen(false)}
             href="#ask-ai"
-            className="mt-2 flex items-center gap-2 rounded-full px-4 py-2.5 text-[13px] font-bold text-ink"
+            className="
+              mt-2 flex items-center gap-2
+              rounded-full px-4 py-2.5
+              text-[14px] font-bold text-ink
+              shadow-[4px_4px_10px_rgba(0,0,0,.25),inset_1px_1px_2px_rgba(255,255,255,.4)]
+            "
             style={{
               background: "linear-gradient(135deg, #c9f269, #9ace53)",
             }}
