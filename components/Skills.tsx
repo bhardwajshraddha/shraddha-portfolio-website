@@ -29,7 +29,10 @@ export default function Skills() {
             </h3>
             <div className="mt-5 flex flex-wrap gap-2">
               {category.skills.map((skill) => (
-                <span key={skill} className="tag">
+                <span
+                  key={skill}
+                  className="inline-flex items-center rounded-lg border border-[#a8ad72]/20 bg-[#435638]/50 px-3 py-2 text-[15px] font-medium leading-5 tracking-[0.01em] text-[#d8d99a]"
+                >
                   {skill}
                 </span>
               ))}
